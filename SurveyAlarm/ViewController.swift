@@ -11,10 +11,17 @@ import ResearchKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var timeRangeLabel: UILabel!
+    
+    
     var strTime : NSDate?
+    var timeFormatter : NSDateFormatter?
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeFormatter = NSDateFormatter()
+        timeFormatter!.dateFormat = "hh:mm a"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -30,19 +37,29 @@ class ViewController: UIViewController {
         
     }
     
+//    override func viewWillAppear(animated: Bool) {
+//        self.navigationController?.navigationBarHidden = true
+//        
+//        UIApplication.sharedApplication().statusBarHidden = false
+//        UIApplication.sharedApplication().statusBarStyle = .LightContent
+//        
+//        let statusBar: UIView = UIApplication.sharedApplication().valueForKey("statusBar") as! UIView
+//        if statusBar.respondsToSelector("setBackgroundColor:"){
+//            statusBar.backgroundColor = UIColor.redColor()
+//        }
+//    }
+    
     //Notifications
     func setNotificationPermission(){
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }
-    @IBOutlet weak var notificationButton: UIButton!
     
     @IBAction func setAlarms(sender: AnyObject) {
         print("hey")
-        var timeFormatter = NSDateFormatter()
-                    timeFormatter.dateFormat = "hh:m a"
 //        timeFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        var strDate = timeFormatter.stringFromDate(strTime!)
+        var strDate = timeFormatter!.stringFromDate(strTime!)
+        
         print(strDate)
     }
     
@@ -58,8 +75,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func setTime(sender: AnyObject) {
-        print("heyyyyyy")
         strTime = timePicker.date
+//        print(strTime?.dateByAddingTimeInterval(43200))
+//        print("\(timeFormatter!.stringFromDate(strTime!))")
+        timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
     }
 
 }
