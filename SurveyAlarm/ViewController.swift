@@ -76,8 +76,6 @@ class ViewController: UIViewController {
 
     @IBAction func setTime(sender: AnyObject) {
         strTime = timePicker.date
-//        print(strTime?.dateByAddingTimeInterval(43200))
-//        print("\(timeFormatter!.stringFromDate(strTime!))")
         timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
     }
 

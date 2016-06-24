@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635917801D1D9EE400327EF7 /* TimeRange.swift */; };
 		63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38931D197DD800757F12 /* AppDelegate.swift */; };
 		63FA38961D197DD800757F12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38951D197DD800757F12 /* ViewController.swift */; };
 		63FA38991D197DD800757F12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FA38971D197DD800757F12 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		635917801D1D9EE400327EF7 /* TimeRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
 		63FA38901D197DD800757F12 /* SurveyAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FA38931D197DD800757F12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63FA38951D197DD800757F12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */,
 				63FA38931D197DD800757F12 /* AppDelegate.swift */,
 				63FA38951D197DD800757F12 /* ViewController.swift */,
+				635917801D1D9EE400327EF7 /* TimeRange.swift */,
 				63FA38971D197DD800757F12 /* Main.storyboard */,
 				63FA389D1D197DD800757F12 /* Assets.xcassets */,
 				63FA389F1D197DD800757F12 /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 			files = (
 				63FA38961D197DD800757F12 /* ViewController.swift in Sources */,
 				63FA389C1D197DD800757F12 /* SurveyAlarm.xcdatamodeld in Sources */,
+				635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */,
 				63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
