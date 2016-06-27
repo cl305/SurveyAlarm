@@ -37,18 +37,6 @@ class ViewController: UIViewController {
         
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        self.navigationController?.navigationBarHidden = true
-//        
-//        UIApplication.sharedApplication().statusBarHidden = false
-//        UIApplication.sharedApplication().statusBarStyle = .LightContent
-//        
-//        let statusBar: UIView = UIApplication.sharedApplication().valueForKey("statusBar") as! UIView
-//        if statusBar.respondsToSelector("setBackgroundColor:"){
-//            statusBar.backgroundColor = UIColor.redColor()
-//        }
-//    }
-    
     //Notifications
     func setNotificationPermission(){
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
@@ -56,16 +44,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func setAlarms(sender: AnyObject) {
-        print("hey")
-//        timeFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        var strDate = timeFormatter!.stringFromDate(strTime!)
-        
-        print(strDate)
+        timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
+        setNotification()
     }
     
     func setNotification(){
         let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        var notDate = "24-06-2016 15:16"
+        notification.fireDate = timeFormatter!.dateFromString(notDate)
         notification.alertBody = "Hey you!"
         notification.alertAction = "Ok"
         notification.soundName = UILocalNotificationDefaultSoundName
@@ -77,6 +63,7 @@ class ViewController: UIViewController {
     @IBAction func setTime(sender: AnyObject) {
         strTime = timePicker.date
         timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
+        
     }
 
 }
