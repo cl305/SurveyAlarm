@@ -18,10 +18,13 @@ class ViewController: UIViewController {
     
     var strTime : NSDate?
     var timeFormatter : NSDateFormatter?
+    var timeIncreArr : [Int] = []
+    var myTimeRange : TimeRange?
     override func viewDidLoad() {
         super.viewDidLoad()
-        timeFormatter = NSDateFormatter()
-        timeFormatter!.dateFormat = "hh:mm a"
+        self.timeFormatter = NSDateFormatter()
+        self.timeFormatter!.dateFormat = "hh:mm a"
+        self.myTimeRange = nil
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -45,17 +48,24 @@ class ViewController: UIViewController {
     
     @IBAction func setAlarms(sender: AnyObject) {
         timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
-        setNotification()
+        var myDate = NSDate()
+        print(timeIncreArr.count)
+        
+        for increment in timeIncreArr{
+            timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
+            var incrementDouble = Double(increment)
+            print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
+        }
     }
     
-    func setNotification(){
+    func setNotification(increment: Double){
         let notification = UILocalNotification()
-        var notDate = "24-06-2016 15:16"
-        notification.fireDate = timeFormatter!.dateFromString(notDate)
-        notification.alertBody = "Hey you!"
+        //        notification.fireDate = timeFormatter!.dateFromString(strTime?.dateByAddingTimeInterval(increment))
+        notification.fireDate = strTime?.dateByAddingTimeInterval(increment)
+        notification.alertBody = "Swipe here to complete a survey."
         notification.alertAction = "Ok"
         notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["CustomField1": "w00t"]
+        notification.userInfo = ["CustomField1": "Survey"]
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
 
     }
@@ -63,7 +73,8 @@ class ViewController: UIViewController {
     @IBAction func setTime(sender: AnyObject) {
         strTime = timePicker.date
         timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
-        
+        myTimeRange = TimeRange(timeStart: strTime!, timeEnd: (strTime?.dateByAddingTimeInterval(50400))!)
+        timeIncreArr = (myTimeRange?.generateAlarmTimes())!
     }
 
 }

@@ -8,56 +8,61 @@
 
 /* Begin PBXBuildFile section */
 		635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635917801D1D9EE400327EF7 /* TimeRange.swift */; };
+		63BEA24A1D22C9DA00E63270 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; };
+		63BEA24B1D22C9DA00E63270 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38931D197DD800757F12 /* AppDelegate.swift */; };
 		63FA38961D197DD800757F12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38951D197DD800757F12 /* ViewController.swift */; };
 		63FA38991D197DD800757F12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FA38971D197DD800757F12 /* Main.storyboard */; };
 		63FA389C1D197DD800757F12 /* SurveyAlarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63FA389A1D197DD800757F12 /* SurveyAlarm.xcdatamodeld */; };
 		63FA389E1D197DD800757F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FA389D1D197DD800757F12 /* Assets.xcassets */; };
 		63FA38A11D197DD800757F12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FA389F1D197DD800757F12 /* LaunchScreen.storyboard */; };
-		63FA38BB1D19B9D400757F12 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FA38B81D19B9CE00757F12 /* ResearchKit.framework */; };
-		63FA38BC1D19B9D400757F12 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63FA38B81D19B9CE00757F12 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		63FA38B71D19B9CE00757F12 /* PBXContainerItemProxy */ = {
+		634C74AE1D22CD4500A4761F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */;
+			containerPortal = 63F7C8111D22C69E00177AF5 /* ResearchKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B183A5951A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
-		63FA38B91D19B9CE00757F12 /* PBXContainerItemProxy */ = {
+		634C74B01D22CD4500A4761F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */;
+			containerPortal = 63F7C8111D22C69E00177AF5 /* ResearchKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
 			remoteInfo = ResearchKitTests;
 		};
-		63FA38BD1D19B9D400757F12 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B183A4731A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		63FA38BF1D19B9D400757F12 /* Embed Frameworks */ = {
+		63BEA24C1D22C9DA00E63270 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				63FA38BC1D19B9D400757F12 /* ResearchKit.framework in Embed Frameworks */,
+				63BEA24B1D22C9DA00E63270 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F7C8241D22C6C900177AF5 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		635917801D1D9EE400327EF7 /* TimeRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		63BEA2451D22C8FB00E63270 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ResearchKit.framework; path = "/Users/codyli/Library/Developer/Xcode/DerivedData/SurveyAlarm-dxpghloaacaftcbywjjqswdssvyv/Build/Products/Debug-iphonesimulator/ResearchKit.framework"; sourceTree = "<absolute>"; };
+		63F7C8111D22C69E00177AF5 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		63FA38901D197DD800757F12 /* SurveyAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FA38931D197DD800757F12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63FA38951D197DD800757F12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +71,6 @@
 		63FA389D1D197DD800757F12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63FA38A01D197DD800757F12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63FA38A21D197DD800757F12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +78,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63FA38BB1D19B9D400757F12 /* ResearchKit.framework in Frameworks */,
+				63BEA24A1D22C9DA00E63270 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		634C74A91D22CD4500A4761F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				634C74AF1D22CD4500A4761F /* ResearchKit.framework */,
+				634C74B11D22CD4500A4761F /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		63FA38871D197DD800757F12 = {
 			isa = PBXGroup;
 			children = (
+				63BEA2451D22C8FB00E63270 /* ResearchKit.framework */,
+				63F7C8111D22C69E00177AF5 /* ResearchKit.xcodeproj */,
 				63FA38921D197DD800757F12 /* SurveyAlarm */,
 				63FA38911D197DD800757F12 /* Products */,
 			);
@@ -100,7 +115,6 @@
 		63FA38921D197DD800757F12 /* SurveyAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */,
 				63FA38931D197DD800757F12 /* AppDelegate.swift */,
 				63FA38951D197DD800757F12 /* ViewController.swift */,
 				635917801D1D9EE400327EF7 /* TimeRange.swift */,
@@ -113,15 +127,6 @@
 			path = SurveyAlarm;
 			sourceTree = "<group>";
 		};
-		63FA38B21D19B9CE00757F12 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				63FA38B81D19B9CE00757F12 /* ResearchKit.framework */,
-				63FA38BA1D19B9CE00757F12 /* ResearchKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,12 +137,12 @@
 				63FA388C1D197DD800757F12 /* Sources */,
 				63FA388D1D197DD800757F12 /* Frameworks */,
 				63FA388E1D197DD800757F12 /* Resources */,
-				63FA38BF1D19B9D400757F12 /* Embed Frameworks */,
+				63F7C8241D22C6C900177AF5 /* Embed PlugIns */,
+				63BEA24C1D22C9DA00E63270 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				63FA38BE1D19B9D400757F12 /* PBXTargetDependency */,
 			);
 			name = SurveyAlarm;
 			productName = SurveyAlarm;
@@ -173,8 +178,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 63FA38B21D19B9CE00757F12 /* Products */;
-					ProjectRef = 63FA38A81D19B99700757F12 /* ResearchKit.xcodeproj */;
+					ProductGroup = 634C74A91D22CD4500A4761F /* Products */;
+					ProjectRef = 63F7C8111D22C69E00177AF5 /* ResearchKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -185,18 +190,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		63FA38B81D19B9CE00757F12 /* ResearchKit.framework */ = {
+		634C74AF1D22CD4500A4761F /* ResearchKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ResearchKit.framework;
-			remoteRef = 63FA38B71D19B9CE00757F12 /* PBXContainerItemProxy */;
+			remoteRef = 634C74AE1D22CD4500A4761F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		63FA38BA1D19B9CE00757F12 /* ResearchKitTests.xctest */ = {
+		634C74B11D22CD4500A4761F /* ResearchKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
-			remoteRef = 63FA38B91D19B9CE00757F12 /* PBXContainerItemProxy */;
+			remoteRef = 634C74B01D22CD4500A4761F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -227,14 +232,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		63FA38BE1D19B9D400757F12 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ResearchKit;
-			targetProxy = 63FA38BD1D19B9D400757F12 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		63FA38971D197DD800757F12 /* Main.storyboard */ = {
@@ -343,7 +340,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SurveyAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodyLi.SurveyAlarm;
@@ -355,7 +351,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SurveyAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodyLi.SurveyAlarm;

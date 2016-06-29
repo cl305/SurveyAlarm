@@ -41,16 +41,17 @@ class TimeRange{
     }
     
     func generateAlarmTimes() -> Array <Int>{
-//        timeFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-//        var startDateNSDate = timeFormatter.dateFromString(startDateStr)
+        print("HOURS")
+        for hour in choiceHourArr{
+            print("\(hour)")
+        }
+        var choiceOffset = 0
         for i in 0...daysRepeated - 1{
-            var choiceOffset = 0
             for j in 0...2{
-                var secondsOffset = (choiceHourArr[choiceOffset + j] * 3600) + (choiceMinArr[choiceOffset + j] * 60)
-                if i != 0{
-                    secondsOffset += 86400 * i //Day offset
-                    alarmDateArr.append(secondsOffset)
-                }
+                var secondsOffset = (choiceHourArr[choiceOffset + j] * 3600) + (choiceMinArr[choiceOffset + j] * 60) + (86400 * i)
+                secondsOffset += (3600 * timeStart24) //Start hour offset
+                print("\(secondsOffset)")
+                alarmDateArr.append(secondsOffset)
             }
             choiceOffset += 3
         }
@@ -58,9 +59,8 @@ class TimeRange{
     }
     
     func randomize(timeStart : Int, timeEnd : Int){
-        var indices = abs(timeStart - timeEnd)
         var hourArr : [Int] = []
-        for i in 0...indices{
+        for i in 0...14{
             var timeElement = timeStart + i
             if timeElement >= 24{
                 hourArr.append(timeElement - 24)
@@ -69,17 +69,21 @@ class TimeRange{
                 hourArr.append(timeElement)
             }
         }
-        var choice = 0
-        for i in 0...daysRepeated - 1{
-            for j in 0...2{
+        for _ in 0...daysRepeated - 1{
+            var choice = 0
+            for _ in 0...2{
+//                print("Random number" + "\(arc4random_uniform(2))")
                 if arc4random_uniform(2) == 0{
                     choice += 2
                 }
                 else{
                     choice += 3
                 }
-                choiceHourArr.append(hourArr[choice])
-                choiceMinArr.append(Int(arc4random_uniform(62)))
+//                print("Choice" + "\(choice)")
+                choiceHourArr.append(hourArr[choice - 1])
+                var randNum = arc4random_uniform(61)
+//                print("\(randNum)")
+                choiceMinArr.append(Int(randNum))
             }
         }
     }
