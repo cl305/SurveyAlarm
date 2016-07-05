@@ -9,7 +9,7 @@
 import UIKit
 import ResearchKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ORKTaskViewControllerDelegate{
 
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -37,7 +37,6 @@ class ViewController: UIViewController {
 //        let myStep = ORKInstructionStep(identifier: "intro")
 //        myStep.title = "Welcome to ResearchKit"
         setNotificationPermission()
-        
     }
     
     //Notifications
@@ -63,7 +62,7 @@ class ViewController: UIViewController {
         //        notification.fireDate = timeFormatter!.dateFromString(strTime?.dateByAddingTimeInterval(increment))
         notification.fireDate = strTime?.dateByAddingTimeInterval(increment)
         notification.alertBody = "Swipe here to complete a survey."
-        notification.alertAction = "Ok"
+        notification.alertAction = "complete survey"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["CustomField1": "Survey"]
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
@@ -75,6 +74,20 @@ class ViewController: UIViewController {
         timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
         myTimeRange = TimeRange(timeStart: strTime!, timeEnd: (strTime?.dateByAddingTimeInterval(50400))!)
         timeIncreArr = (myTimeRange?.generateAlarmTimes())!
+    }
+    
+    //Survey
+    @IBOutlet weak var surveyButton: NSLayoutConstraint!
+    
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        //Handle results with taskViewController.result
+        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func surveyTapped(sender : AnyObject){
+        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
+        taskViewController.delegate = self
+        presentViewController(taskViewController, animated: true, completion: nil)
     }
 
 }

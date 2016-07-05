@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-fz-bSw">
-                                <rect key="frame" x="0.0" y="20" width="600" height="144"/>
+                                <rect key="frame" x="0.0" y="342" width="600" height="144"/>
                                 <date key="date" timeIntervalSinceReferenceDate="488203200.349895">
                                     <!--2016-06-21 12:00:00 +0000-->
                                 </date>
@@ -30,31 +30,41 @@
                                 </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSt-TW-x7x">
-                                <rect key="frame" x="264" y="228" width="73" height="30"/>
+                                <rect key="frame" x="264" y="550" width="73" height="30"/>
                                 <state key="normal" title="Set alarms"/>
                                 <connections>
                                     <action selector="setAlarms:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cue-0J-5dX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:00 AM - 10:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tng-Vf-Dee">
-                                <rect key="frame" x="223" y="183" width="155" height="21"/>
+                                <rect key="frame" x="223" y="505" width="155" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2g-vm-fYy">
+                                <rect key="frame" x="241" y="69" width="118" height="30"/>
+                                <state key="normal" title="Complete Survey"/>
+                                <connections>
+                                    <action selector="surveyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d5w-iV-ed4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qeK-fz-bSw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Heb-YP-pMQ"/>
-                            <constraint firstItem="qeK-fz-bSw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-208" id="cuK-ty-tYF"/>
+                            <constraint firstItem="qeK-fz-bSw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="114" id="cuK-ty-tYF"/>
+                            <constraint firstItem="a2g-vm-fYy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eCv-Ip-lqx"/>
                             <constraint firstItem="RSt-TW-x7x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="leX-Mh-rbF"/>
                             <constraint firstItem="Tng-Vf-Dee" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n9W-jT-xJY"/>
-                            <constraint firstItem="Tng-Vf-Dee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-106.5" id="rUZ-5z-yLb"/>
-                            <constraint firstItem="RSt-TW-x7x" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-57" id="rtK-vG-Kd5"/>
+                            <constraint firstItem="Tng-Vf-Dee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="215.5" id="rUZ-5z-yLb"/>
+                            <constraint firstItem="RSt-TW-x7x" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="265" id="rtK-vG-Kd5"/>
+                            <constraint firstItem="a2g-vm-fYy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-216" id="x8i-9d-cNs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="notificationButton" destination="RSt-TW-x7x" id="duy-IH-t80"/>
+                        <outlet property="surveyButton" destination="x8i-9d-cNs" id="TBG-1d-fyK"/>
                         <outlet property="timePicker" destination="qeK-fz-bSw" id="DDx-GF-nHR"/>
                         <outlet property="timeRangeLabel" destination="Tng-Vf-Dee" id="C8I-7Y-2Lm"/>
                     </connections>
