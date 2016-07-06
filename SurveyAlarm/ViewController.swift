@@ -8,7 +8,7 @@
 
 import UIKit
 import ResearchKit
-
+import Foundation
 class ViewController: UIViewController, ORKTaskViewControllerDelegate{
 
     @IBOutlet weak var notificationButton: UIButton!
@@ -78,14 +78,27 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     
     //Survey
     @IBOutlet weak var surveyButton: NSLayoutConstraint!
-    
+
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         //Handle results with taskViewController.result
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func surveyTapped(sender : AnyObject){
-        let taskViewController = ORKTaskViewController(task: SurveyTask, taskRunUUID: nil)
+        var choice = Int(arc4random_uniform(2))
+        
+        var taskViewController : ORKTaskViewController
+        switch choice {
+        case 0:
+            taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
+        case 1:
+            taskViewController = ORKTaskViewController(task: MCSurveyTask, taskRunUUID: nil)
+        default:
+            taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
+        }
+        
+//        let taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
+        
         taskViewController.delegate = self
         presentViewController(taskViewController, animated: true, completion: nil)
     }
