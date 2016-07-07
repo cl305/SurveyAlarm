@@ -24,25 +24,15 @@ public var CheckAllSurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "Fever", detailText: "A 100F or higher fever or feeling feverish", value: 1, exclusive: false),
         ORKTextChoice(text: "Headaches", detailText: "Headaches and/or body aches", value: 2, exclusive: false)
     ]
+    
     let mcQuestionFormat_One = ORKTextChoiceAnswerFormat(style: .MultipleChoice, textChoices: mcQuestionChoices_One)
     let mcQuestionStep_One = ORKQuestionStep(identifier: "MCStepOne", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
     steps += [mcQuestionStep_One]
     
-//    let nameAnswerFormat = ORKTextAnswerFormat(maximumLength: 20)
-//    nameAnswerFormat.multipleLines = false
-//    let nameQuestionStepTitle = "what is your name?"
-//    let nameQuestionStep = ORKQuestionStep(identifier: "QuestionStep", title: nameQuestionStepTitle, answer: nameAnswerFormat)
-//    steps += [nameQuestionStep]
-//    
-//    let questQuestionStepTitle = "What is your quest?"
-//    let textChoices = [
-//        ORKTextChoice(text: "Create a ResearchKit App", value: 0),
-//        ORKTextChoice(text: "Seek the Holy Grail", value: 1),
-//        ORKTextChoice(text: "Find a shrubbery", value: 2)
-//    ]
-//    let questAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: textChoices)
-//    let questQuestionStep = ORKQuestionStep(identifier: "TextChoiceQuestionStep", title: questQuestionStepTitle, answer: questAnswerFormat)
-//    steps += [questQuestionStep]
+    let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
+    summaryStep.title = "Tap 'Done' to complete the survey."
+    summaryStep.text = "Your phone will notify you again of when to complete another survey."
+    steps += [summaryStep]
     
-    return ORKOrderedTask(identifier: "MCSurveyTask", steps: steps)
+    return ORKOrderedTask(identifier: "CheckAllSurveyTask", steps: steps)
 }

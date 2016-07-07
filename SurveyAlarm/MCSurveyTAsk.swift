@@ -28,5 +28,10 @@ public var MCSurveyTask: ORKOrderedTask {
     let mcQuestionStep_One = ORKQuestionStep(identifier: "MCStepOne", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
     steps += [mcQuestionStep_One]
     
+    let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
+    summaryStep.title = "Tap 'Done' to complete the survey."
+    summaryStep.text = "Your phone will notify you again of when to complete another survey."
+    steps += [summaryStep]
+    
     return ORKOrderedTask(identifier: "MCSurveyTask", steps: steps)
 }

@@ -92,7 +92,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         case 0:
             taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
         case 1:
-            taskViewController = ORKTaskViewController(task: MCSurveyTask, taskRunUUID: nil)
+            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
         default:
             taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
         }

@@ -10,6 +10,7 @@
 		6350377F1D2C110A0007E262 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350377E1D2C110A0007E262 /* SurveyTask.swift */; };
 		635037821D2D543B0007E262 /* CheckAllSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */; };
 		635037841D2D613E0007E262 /* MCSurveyTAsk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037831D2D613E0007E262 /* MCSurveyTAsk.swift */; };
+		635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037851D2D9CEE0007E262 /* FRSurveyTask.swift */; };
 		635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635917801D1D9EE400327EF7 /* TimeRange.swift */; };
 		63BA37181D245C1400138B7D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BA37171D245C1400138B7D /* HealthKit.framework */; };
 		63BEA24A1D22C9DA00E63270 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; };
@@ -50,6 +51,7 @@
 		6350377E1D2C110A0007E262 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAllSurveyTask.swift; sourceTree = "<group>"; };
 		635037831D2D613E0007E262 /* MCSurveyTAsk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSurveyTAsk.swift; sourceTree = "<group>"; };
+		635037851D2D9CEE0007E262 /* FRSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSurveyTask.swift; sourceTree = "<group>"; };
 		635917801D1D9EE400327EF7 /* TimeRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
 		63BA37171D245C1400138B7D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		63BA37191D245C1400138B7D /* SurveyAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SurveyAlarm.entitlements; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				63FA38951D197DD800757F12 /* ViewController.swift */,
 				6350377E1D2C110A0007E262 /* SurveyTask.swift */,
 				635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */,
+				635037851D2D9CEE0007E262 /* FRSurveyTask.swift */,
 				635037831D2D613E0007E262 /* MCSurveyTAsk.swift */,
 				635917801D1D9EE400327EF7 /* TimeRange.swift */,
 				63FA38971D197DD800757F12 /* Main.storyboard */,
@@ -202,6 +205,7 @@
 				635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */,
 				63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */,
 				635037821D2D543B0007E262 /* CheckAllSurveyTask.swift in Sources */,
+				635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */,
 				635037841D2D613E0007E262 /* MCSurveyTAsk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
