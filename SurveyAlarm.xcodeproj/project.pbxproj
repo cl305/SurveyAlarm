@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6350377F1D2C110A0007E262 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350377E1D2C110A0007E262 /* SurveyTask.swift */; };
 		635037821D2D543B0007E262 /* CheckAllSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */; };
-		635037841D2D613E0007E262 /* MCSurveyTAsk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037831D2D613E0007E262 /* MCSurveyTAsk.swift */; };
+		635037841D2D613E0007E262 /* MCSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037831D2D613E0007E262 /* MCSurveyTask.swift */; };
 		635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037851D2D9CEE0007E262 /* FRSurveyTask.swift */; };
 		635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635917801D1D9EE400327EF7 /* TimeRange.swift */; };
+		639C48B01D34025D00D37F92 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 639C48AF1D34025D00D37F92 /* ORKESerialization.m */; };
+		63AE8C1C1D2ECE4D0077E005 /* LikertSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */; };
+		63AE8C1E1D2FEE700077E005 /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE8C1D1D2FEE700077E005 /* ResultParser.swift */; };
 		63BA37181D245C1400138B7D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BA37171D245C1400138B7D /* HealthKit.framework */; };
 		63BEA24A1D22C9DA00E63270 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; };
 		63BEA24B1D22C9DA00E63270 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -48,11 +50,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6350377E1D2C110A0007E262 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckAllSurveyTask.swift; sourceTree = "<group>"; };
-		635037831D2D613E0007E262 /* MCSurveyTAsk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSurveyTAsk.swift; sourceTree = "<group>"; };
+		635037831D2D613E0007E262 /* MCSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSurveyTask.swift; sourceTree = "<group>"; };
 		635037851D2D9CEE0007E262 /* FRSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSurveyTask.swift; sourceTree = "<group>"; };
 		635917801D1D9EE400327EF7 /* TimeRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		639C48AD1D34023600D37F92 /* ORKESerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
+		639C48AE1D34025D00D37F92 /* SurveyAlarm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SurveyAlarm-Bridging-Header.h"; sourceTree = "<group>"; };
+		639C48AF1D34025D00D37F92 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
+		63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikertSurveyTask.swift; sourceTree = "<group>"; };
+		63AE8C1D1D2FEE700077E005 /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		63BA37171D245C1400138B7D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		63BA37191D245C1400138B7D /* SurveyAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SurveyAlarm.entitlements; sourceTree = "<group>"; };
 		63BEA2451D22C8FB00E63270 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ResearchKit.framework; path = "/Users/codyli/Library/Developer/Xcode/DerivedData/SurveyAlarm-dxpghloaacaftcbywjjqswdssvyv/Build/Products/Debug-iphonesimulator/ResearchKit.framework"; sourceTree = "<absolute>"; };
@@ -103,16 +109,20 @@
 				63BA37191D245C1400138B7D /* SurveyAlarm.entitlements */,
 				63FA38931D197DD800757F12 /* AppDelegate.swift */,
 				63FA38951D197DD800757F12 /* ViewController.swift */,
-				6350377E1D2C110A0007E262 /* SurveyTask.swift */,
+				639C48AD1D34023600D37F92 /* ORKESerialization.h */,
+				639C48AF1D34025D00D37F92 /* ORKESerialization.m */,
 				635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */,
+				63AE8C1D1D2FEE700077E005 /* ResultParser.swift */,
 				635037851D2D9CEE0007E262 /* FRSurveyTask.swift */,
-				635037831D2D613E0007E262 /* MCSurveyTAsk.swift */,
+				635037831D2D613E0007E262 /* MCSurveyTask.swift */,
+				63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */,
 				635917801D1D9EE400327EF7 /* TimeRange.swift */,
 				63FA38971D197DD800757F12 /* Main.storyboard */,
 				63FA389D1D197DD800757F12 /* Assets.xcassets */,
 				63FA389F1D197DD800757F12 /* LaunchScreen.storyboard */,
 				63FA38A21D197DD800757F12 /* Info.plist */,
 				63FA389A1D197DD800757F12 /* SurveyAlarm.xcdatamodeld */,
+				639C48AE1D34025D00D37F92 /* SurveyAlarm-Bridging-Header.h */,
 			);
 			path = SurveyAlarm;
 			sourceTree = "<group>";
@@ -200,13 +210,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FA38961D197DD800757F12 /* ViewController.swift in Sources */,
+				63AE8C1E1D2FEE700077E005 /* ResultParser.swift in Sources */,
 				63FA389C1D197DD800757F12 /* SurveyAlarm.xcdatamodeld in Sources */,
-				6350377F1D2C110A0007E262 /* SurveyTask.swift in Sources */,
+				63AE8C1C1D2ECE4D0077E005 /* LikertSurveyTask.swift in Sources */,
 				635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */,
 				63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */,
 				635037821D2D543B0007E262 /* CheckAllSurveyTask.swift in Sources */,
+				639C48B01D34025D00D37F92 /* ORKESerialization.m in Sources */,
 				635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */,
-				635037841D2D613E0007E262 /* MCSurveyTAsk.swift in Sources */,
+				635037841D2D613E0007E262 /* MCSurveyTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,11 +331,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SurveyAlarm/SurveyAlarm.entitlements;
 				INFOPLIST_FILE = SurveyAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodyLi.SurveyAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SurveyAlarm/SurveyAlarm-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -331,11 +346,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SurveyAlarm/SurveyAlarm.entitlements;
 				INFOPLIST_FILE = SurveyAlarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CodyLi.SurveyAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SurveyAlarm/SurveyAlarm-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -47,12 +47,12 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     
     @IBAction func setAlarms(sender: AnyObject) {
         timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
-        var myDate = NSDate()
+        let myDate = NSDate()
         print(timeIncreArr.count)
         
         for increment in timeIncreArr{
             timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
-            var incrementDouble = Double(increment)
+            let incrementDouble = Double(increment)
             print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
         }
     }
@@ -71,6 +71,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
 
     @IBAction func setTime(sender: AnyObject) {
         strTime = timePicker.date
+        timeFormatter!.dateFormat = "hh:mm a" 
         timeRangeLabel.text = timeFormatter!.stringFromDate((strTime)!) + " - " + timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(50400))!)
         myTimeRange = TimeRange(timeStart: strTime!, timeEnd: (strTime?.dateByAddingTimeInterval(50400))!)
         timeIncreArr = (myTimeRange?.generateAlarmTimes())!
@@ -78,29 +79,54 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     
     //Survey
     @IBOutlet weak var surveyButton: NSLayoutConstraint!
-
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        //Handle results with taskViewController.result
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBAction func surveyTapped(sender : AnyObject){
-        var choice = Int(arc4random_uniform(2))
-        
+        let choice = Int(arc4random_uniform(4))
         var taskViewController : ORKTaskViewController
         switch choice {
         case 0:
             taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
-        case 1:
-            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
+//        case 1:
+//            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
+//        case 2:
+//            taskViewController = ORKTaskViewController(task: MCSurveyTask, taskRunUUID: nil)
+//        case 3:
+//            taskViewController = ORKTaskViewController(task: LikertSurveyTask, taskRunUUID: nil)
         default:
             taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
         }
         
-//        let taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
-        
         taskViewController.delegate = self
         presentViewController(taskViewController, animated: true, completion: nil)
+    }
+    
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        //Handle results with taskViewController.result
+//        let result = taskViewController.result.results as? ORKChoiceQuestionResult
+//        print(result!.choiceAnswers)
+        if let results = taskViewController.result.results as? [ORKStepResult] {
+            print()
+//            print("Results: \(results)")
+            for stepResult: ORKStepResult in results {
+                
+                for result in stepResult.results!{
+                    
+                    if let questionResult = result as? ORKQuestionResult {
+                        print("\(questionResult.identifier), \(questionResult.answer)")
+                    }
+                    if let tappingResult = result as? ORKTappingIntervalResult {
+//                        print("\(tappingResult.identifier), \(tappingResult.samples), \(NSStringFromCGRect(tappingResult.buttonRect1)) \(NSStringFromCGRect(tappingResult.buttonRect1)))")
+                    }
+                    else{
+//                        print("No printable results.")
+                    }
+                    
+                }
+            }
+            
+        }
+        
+        taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
