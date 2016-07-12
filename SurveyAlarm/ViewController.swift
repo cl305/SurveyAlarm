@@ -85,7 +85,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         var taskViewController : ORKTaskViewController
         switch choice {
         case 0:
-            taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
+            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
 //        case 1:
 //            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
 //        case 2:
@@ -101,31 +101,25 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     }
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        //Handle results with taskViewController.result
-//        let result = taskViewController.result.results as? ORKChoiceQuestionResult
-//        print(result!.choiceAnswers)
-        if let results = taskViewController.result.results as? [ORKStepResult] {
-            print()
-//            print("Results: \(results)")
-            for stepResult: ORKStepResult in results {
-                
-                for result in stepResult.results!{
-                    
-                    if let questionResult = result as? ORKQuestionResult {
-                        print("\(questionResult.identifier), \(questionResult.answer)")
-                    }
-                    if let tappingResult = result as? ORKTappingIntervalResult {
-//                        print("\(tappingResult.identifier), \(tappingResult.samples), \(NSStringFromCGRect(tappingResult.buttonRect1)) \(NSStringFromCGRect(tappingResult.buttonRect1)))")
-                    }
-                    else{
-//                        print("No printable results.")
-                    }
-                    
+        if (reason == .Completed){
+            if let results = taskViewController.result.results as? [ORKStepResult] {
+                for stepResult: ORKStepResult in results {
+                    for result in stepResult.results!{
+                        if let questionResult = result as? ORKTextQuestionResult{
+                            var str = questionResult.textAnswer
+                            print(str)
+                        }
+                        else if let questionResult = result as? ORKQuestionResult {
+                            var str = questionResult.answer
+                            print(str)
+                        }
+                        else if let tappingResult = result as? ORKTappingIntervalResult {
+                        //                        print("\(tappingResult.identifier), \(tappingResult.samples), \(NSStringFromCGRect(tappingResult.buttonRect1)) \(NSStringFromCGRect(tappingResult.buttonRect1)))")
+                        }
+                }
                 }
             }
-            
         }
-        
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 
