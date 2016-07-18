@@ -9,6 +9,10 @@
 import UIKit
 import ResearchKit
 import Foundation
+import CoreData
+
+//#import "SurveyAlarm-Bridging-Header.h"
+
 class ViewController: UIViewController, ORKTaskViewControllerDelegate{
 
     @IBOutlet weak var notificationButton: UIButton!
@@ -20,22 +24,22 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     var timeFormatter : NSDateFormatter?
     var timeIncreArr : [Int] = []
     var myTimeRange : TimeRange?
+    var moc : NSManagedObjectContext?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timeFormatter = NSDateFormatter()
         self.timeFormatter!.dateFormat = "hh:mm a"
         self.myTimeRange = nil
-        // Do any additional setup after loading the view, typically from a nib.
+        self.strTime = NSDate()
+        self.moc = DataController().managedObjectContext
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
-//        let myStep = ORKInstructionStep(identifier: "intro")
-//        myStep.title = "Welcome to ResearchKit"
         setNotificationPermission()
     }
     
@@ -86,12 +90,12 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         switch choice {
         case 0:
             taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
-//        case 1:
-//            taskViewController = ORKTaskViewController(task: FRSurveyTask, taskRunUUID: nil)
-//        case 2:
-//            taskViewController = ORKTaskViewController(task: MCSurveyTask, taskRunUUID: nil)
-//        case 3:
-//            taskViewController = ORKTaskViewController(task: LikertSurveyTask, taskRunUUID: nil)
+        case 1:
+            taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
+        case 2:
+            taskViewController = ORKTaskViewController(task: MCSurveyTask, taskRunUUID: nil)
+        case 3:
+            taskViewController = ORKTaskViewController(task: LikertSurveyTask, taskRunUUID: nil)
         default:
             taskViewController = ORKTaskViewController(task: CheckAllSurveyTask, taskRunUUID: nil)
         }
@@ -101,26 +105,59 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     }
     
     func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+        let moc = DataController().managedObjectContext
+        let entity = NSEntityDescription.insertNewObjectForEntityForName("SurveyResults", inManagedObjectContext: moc) as! SurveyResults
+        
         if (reason == .Completed){
             if let results = taskViewController.result.results as? [ORKStepResult] {
                 for stepResult: ORKStepResult in results {
                     for result in stepResult.results!{
+                        let questionID = result.identifier
+                        entity.setValue(questionID, forKey: "identifier")
                         if let questionResult = result as? ORKTextQuestionResult{
-                            var str = questionResult.textAnswer
-                            print(str)
+                            entity.setValue(questionResult.endDate, forKey: "date")
+                            entity.setValue(questionResult.textAnswer, forKey: "answer")
                         }
                         else if let questionResult = result as? ORKQuestionResult {
-                            var str = questionResult.answer
-                            print(str)
+                            let str = questionResult.answer as? NSArray
+                            entity.setValue(questionResult.endDate, forKey: "date")
+                            var response : String = ""
+                            for choices in str!{
+                                response = response + "\(choices), "
+                            }
+                            entity.setValue(response, forKey: "answers")
                         }
-                        else if let tappingResult = result as? ORKTappingIntervalResult {
-                        //                        print("\(tappingResult.identifier), \(tappingResult.samples), \(NSStringFromCGRect(tappingResult.buttonRect1)) \(NSStringFromCGRect(tappingResult.buttonRect1)))")
-                        }
-                }
+                    }
                 }
             }
         }
+        do {
+            try moc.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
+        fetchRecord()
+    }
+        
+    func fetchRecord() {
+        let moc = DataController().managedObjectContext
+        let recordFetch = NSFetchRequest(entityName: "SurveyResults")
+        
+        do {
+            let fetchedRecord = try moc.executeFetchRequest(recordFetch) as! [SurveyResults]
+            for record in fetchedRecord {
+                if let stringID = record.valueForKey("identifier") as? String{
+                    print(stringID)
+                }
+                if let stringAns = record.valueForKey("answers") as? String {
+                    print(stringAns)
+                }
+                
+            }
+        } catch {
+            fatalError("Failed to fetch record: \(error)")
+        }
     }
 
 }

@@ -11,12 +11,14 @@
 		635037841D2D613E0007E262 /* MCSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037831D2D613E0007E262 /* MCSurveyTask.swift */; };
 		635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635037851D2D9CEE0007E262 /* FRSurveyTask.swift */; };
 		635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635917801D1D9EE400327EF7 /* TimeRange.swift */; };
-		639C48B01D34025D00D37F92 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 639C48AF1D34025D00D37F92 /* ORKESerialization.m */; };
 		63AE8C1C1D2ECE4D0077E005 /* LikertSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */; };
-		63AE8C1E1D2FEE700077E005 /* ResultParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE8C1D1D2FEE700077E005 /* ResultParser.swift */; };
 		63BA37181D245C1400138B7D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BA37171D245C1400138B7D /* HealthKit.framework */; };
 		63BEA24A1D22C9DA00E63270 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; };
 		63BEA24B1D22C9DA00E63270 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63BEA2451D22C8FB00E63270 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63F377201D36C16800551B4F /* CoreSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3771F1D36C16800551B4F /* CoreSave.swift */; };
+		63F377291D36C73800551B4F /* SurveyResults+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F377271D36C73800551B4F /* SurveyResults+CoreDataProperties.swift */; };
+		63F3772A1D36C73800551B4F /* SurveyResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F377281D36C73800551B4F /* SurveyResults.swift */; };
+		63F3772C1D36C90100551B4F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3772B1D36C90100551B4F /* DataController.swift */; };
 		63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38931D197DD800757F12 /* AppDelegate.swift */; };
 		63FA38961D197DD800757F12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA38951D197DD800757F12 /* ViewController.swift */; };
 		63FA38991D197DD800757F12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FA38971D197DD800757F12 /* Main.storyboard */; };
@@ -54,14 +56,15 @@
 		635037831D2D613E0007E262 /* MCSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCSurveyTask.swift; sourceTree = "<group>"; };
 		635037851D2D9CEE0007E262 /* FRSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRSurveyTask.swift; sourceTree = "<group>"; };
 		635917801D1D9EE400327EF7 /* TimeRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
-		639C48AD1D34023600D37F92 /* ORKESerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
 		639C48AE1D34025D00D37F92 /* SurveyAlarm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SurveyAlarm-Bridging-Header.h"; sourceTree = "<group>"; };
-		639C48AF1D34025D00D37F92 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
 		63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikertSurveyTask.swift; sourceTree = "<group>"; };
-		63AE8C1D1D2FEE700077E005 /* ResultParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultParser.swift; sourceTree = "<group>"; };
 		63BA37171D245C1400138B7D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		63BA37191D245C1400138B7D /* SurveyAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SurveyAlarm.entitlements; sourceTree = "<group>"; };
 		63BEA2451D22C8FB00E63270 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ResearchKit.framework; path = "/Users/codyli/Library/Developer/Xcode/DerivedData/SurveyAlarm-dxpghloaacaftcbywjjqswdssvyv/Build/Products/Debug-iphonesimulator/ResearchKit.framework"; sourceTree = "<absolute>"; };
+		63F3771F1D36C16800551B4F /* CoreSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreSave.swift; sourceTree = "<group>"; };
+		63F377271D36C73800551B4F /* SurveyResults+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SurveyResults+CoreDataProperties.swift"; path = "../SurveyResults+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		63F377281D36C73800551B4F /* SurveyResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SurveyResults.swift; path = ../SurveyResults.swift; sourceTree = "<group>"; };
+		63F3772B1D36C90100551B4F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = ../DataController.swift; sourceTree = "<group>"; };
 		63FA38901D197DD800757F12 /* SurveyAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FA38931D197DD800757F12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63FA38951D197DD800757F12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,13 +109,14 @@
 		63FA38921D197DD800757F12 /* SurveyAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				63F377271D36C73800551B4F /* SurveyResults+CoreDataProperties.swift */,
+				63F377281D36C73800551B4F /* SurveyResults.swift */,
+				63F3772B1D36C90100551B4F /* DataController.swift */,
 				63BA37191D245C1400138B7D /* SurveyAlarm.entitlements */,
 				63FA38931D197DD800757F12 /* AppDelegate.swift */,
 				63FA38951D197DD800757F12 /* ViewController.swift */,
-				639C48AD1D34023600D37F92 /* ORKESerialization.h */,
-				639C48AF1D34025D00D37F92 /* ORKESerialization.m */,
+				63F3771F1D36C16800551B4F /* CoreSave.swift */,
 				635037811D2D543B0007E262 /* CheckAllSurveyTask.swift */,
-				63AE8C1D1D2FEE700077E005 /* ResultParser.swift */,
 				635037851D2D9CEE0007E262 /* FRSurveyTask.swift */,
 				635037831D2D613E0007E262 /* MCSurveyTask.swift */,
 				63AE8C1B1D2ECE4D0077E005 /* LikertSurveyTask.swift */,
@@ -210,13 +214,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FA38961D197DD800757F12 /* ViewController.swift in Sources */,
-				63AE8C1E1D2FEE700077E005 /* ResultParser.swift in Sources */,
+				63F3772C1D36C90100551B4F /* DataController.swift in Sources */,
 				63FA389C1D197DD800757F12 /* SurveyAlarm.xcdatamodeld in Sources */,
 				63AE8C1C1D2ECE4D0077E005 /* LikertSurveyTask.swift in Sources */,
 				635917811D1D9EE400327EF7 /* TimeRange.swift in Sources */,
 				63FA38941D197DD800757F12 /* AppDelegate.swift in Sources */,
 				635037821D2D543B0007E262 /* CheckAllSurveyTask.swift in Sources */,
-				639C48B01D34025D00D37F92 /* ORKESerialization.m in Sources */,
+				63F377291D36C73800551B4F /* SurveyResults+CoreDataProperties.swift in Sources */,
+				63F377201D36C16800551B4F /* CoreSave.swift in Sources */,
+				63F3772A1D36C73800551B4F /* SurveyResults.swift in Sources */,
 				635037861D2D9CEE0007E262 /* FRSurveyTask.swift in Sources */,
 				635037841D2D613E0007E262 /* MCSurveyTask.swift in Sources */,
 			);

@@ -25,7 +25,7 @@ public var MCSurveyTask: ORKOrderedTask {
         ORKTextChoice(text: "More than eight", value: 2)
     ]
     let mcQuestionFormat_One = ORKTextChoiceAnswerFormat(style: .SingleChoice, textChoices: mcQuestionChoices_One)
-    let mcQuestionStep_One = ORKQuestionStep(identifier: "MCStepOne", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
+    let mcQuestionStep_One = ORKQuestionStep(identifier: "MCStep1", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
     steps += [mcQuestionStep_One]
     
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")

@@ -26,7 +26,7 @@ public var CheckAllSurveyTask: ORKOrderedTask {
     ]
     
     let mcQuestionFormat_One = ORKTextChoiceAnswerFormat(style: .MultipleChoice, textChoices: mcQuestionChoices_One)
-    let mcQuestionStep_One = ORKQuestionStep(identifier: "MCStepOne", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
+    let mcQuestionStep_One = ORKQuestionStep(identifier: "CheckAllStep1", title: mcQuestionTitle_One, answer: mcQuestionFormat_One)
     steps += [mcQuestionStep_One]
     
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")

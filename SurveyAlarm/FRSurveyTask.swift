@@ -21,7 +21,7 @@ public var FRSurveyTask: ORKOrderedTask {
     let nameAnswerFormat = ORKTextAnswerFormat(maximumLength: 200)
     nameAnswerFormat.multipleLines = true
     let nameQuestionStepTitle = "How are you?"
-    let nameQuestionStep = ORKQuestionStep(identifier: "QuestionStep", title: nameQuestionStepTitle, answer: nameAnswerFormat)
+    let nameQuestionStep = ORKQuestionStep(identifier: "FRQuestionStep1", title: nameQuestionStepTitle, answer: nameAnswerFormat)
     steps += [nameQuestionStep]
     
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
