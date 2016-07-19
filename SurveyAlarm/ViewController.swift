@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import ResearchKit
+//import ResearchKit
 import Foundation
 import CoreData
+import ResearchKit
 
 //#import "SurveyAlarm-Bridging-Header.h"
 
@@ -18,6 +19,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var timeRangeLabel: UILabel!
+    @IBOutlet weak var exportButton: UIButton!
     
     
     var strTime : NSDate?
@@ -116,15 +118,17 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
                         entity.setValue(questionID, forKey: "identifier")
                         if let questionResult = result as? ORKTextQuestionResult{
                             entity.setValue(questionResult.endDate, forKey: "date")
-                            entity.setValue(questionResult.textAnswer, forKey: "answer")
+                            print(questionResult.endDate)
+                            entity.setValue(questionResult.textAnswer, forKey: "answers")
                         }
                         else if let questionResult = result as? ORKQuestionResult {
                             let str = questionResult.answer as? NSArray
                             entity.setValue(questionResult.endDate, forKey: "date")
-                            var response : String = ""
+                            var response : String = "{"
                             for choices in str!{
-                                response = response + "\(choices), "
+                                response = response + "\(choices) "
                             }
+                            response = response + "}"
                             entity.setValue(response, forKey: "answers")
                         }
                     }
@@ -137,28 +141,47 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
             fatalError("Failure to save context: \(error)")
         }
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
-        fetchRecord()
     }
-        
-    func fetchRecord() {
+    
+    @IBAction func exportData(sender: AnyObject) {
         let moc = DataController().managedObjectContext
         let recordFetch = NSFetchRequest(entityName: "SurveyResults")
-        
+        var dataString = ""
         do {
             let fetchedRecord = try moc.executeFetchRequest(recordFetch) as! [SurveyResults]
             for record in fetchedRecord {
+                if let stringDate = record.valueForKey("date") as? NSDate {
+                    self.timeFormatter?.dateFormat = "MM-dd-yyyy HH:mm"
+                    print(stringDate)
+                    dataString = dataString + "\(stringDate)" + " \n"
+                }
                 if let stringID = record.valueForKey("identifier") as? String{
                     print(stringID)
+                    dataString = dataString + "\(stringID), "
                 }
                 if let stringAns = record.valueForKey("answers") as? String {
                     print(stringAns)
+                    dataString = dataString + "\(stringAns) "
                 }
-                
             }
         } catch {
             fatalError("Failed to fetch record: \(error)")
         }
+        let str = "QuestionID, Response, Date \n" + dataString
+        let fileName = getDocumentsDirectory().stringByAppendingPathComponent("output.csv")
+        
+        do {
+            try str.writeToFile(fileName, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch {
+            fatalError("Failed to save to file: \(error)")
+        }
     }
-
+    
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
 }
 

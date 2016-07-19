@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-fz-bSw">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-fz-bSw">
                                 <rect key="frame" x="0.0" y="342" width="600" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="zYv-aq-SdV"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="488203200.349895">
                                     <!--2016-06-21 12:00:00 +0000-->
                                 </date>
@@ -49,20 +52,37 @@
                                     <action selector="surveyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d5w-iV-ed4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7h-EL-UK2">
+                                <rect key="frame" x="250" y="107" width="100" height="30"/>
+                                <state key="normal" title="Export Results"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYA-Qu-iRM">
+                                <rect key="frame" x="250" y="107" width="100" height="30"/>
+                                <state key="normal" title="Export Results"/>
+                                <connections>
+                                    <action selector="exportData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AO-cK-Bnh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qeK-fz-bSw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7tH-u2-wCG"/>
                             <constraint firstItem="qeK-fz-bSw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Heb-YP-pMQ"/>
+                            <constraint firstItem="NYA-Qu-iRM" firstAttribute="leading" secondItem="h7h-EL-UK2" secondAttribute="leading" id="NNc-Vg-L1O"/>
+                            <constraint firstItem="NYA-Qu-iRM" firstAttribute="baseline" secondItem="h7h-EL-UK2" secondAttribute="baseline" id="Pff-9Q-RWW"/>
+                            <constraint firstItem="NYA-Qu-iRM" firstAttribute="centerX" secondItem="a2g-vm-fYy" secondAttribute="centerX" id="ZS5-90-UMz"/>
                             <constraint firstItem="qeK-fz-bSw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="114" id="cuK-ty-tYF"/>
                             <constraint firstItem="a2g-vm-fYy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eCv-Ip-lqx"/>
                             <constraint firstItem="RSt-TW-x7x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="leX-Mh-rbF"/>
                             <constraint firstItem="Tng-Vf-Dee" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n9W-jT-xJY"/>
+                            <constraint firstItem="NYA-Qu-iRM" firstAttribute="top" secondItem="a2g-vm-fYy" secondAttribute="bottom" constant="8" symbolic="YES" id="o8B-0R-JKc"/>
                             <constraint firstItem="Tng-Vf-Dee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="215.5" id="rUZ-5z-yLb"/>
                             <constraint firstItem="RSt-TW-x7x" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="265" id="rtK-vG-Kd5"/>
                             <constraint firstItem="a2g-vm-fYy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-216" id="x8i-9d-cNs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="exportButton" destination="NYA-Qu-iRM" id="yfc-qx-uvp"/>
                         <outlet property="notificationButton" destination="RSt-TW-x7x" id="duy-IH-t80"/>
                         <outlet property="surveyButton" destination="x8i-9d-cNs" id="TBG-1d-fyK"/>
                         <outlet property="timePicker" destination="qeK-fz-bSw" id="DDx-GF-nHR"/>
