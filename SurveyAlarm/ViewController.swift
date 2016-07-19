@@ -152,22 +152,27 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
             for record in fetchedRecord {
                 if let stringDate = record.valueForKey("date") as? NSDate {
                     self.timeFormatter?.dateFormat = "MM-dd-yyyy HH:mm"
-                    print(stringDate)
-                    dataString = dataString + "\(stringDate)" + " \n"
+                    if let formattedDate = timeFormatter!.stringFromDate(stringDate) as? String {
+                        print(formattedDate)
+                        dataString = dataString + "\(formattedDate), "
+                    }
+//                    dataString = dataString + "\(timeFormatter?.stringFromDate(stringDate)), "
                 }
                 if let stringID = record.valueForKey("identifier") as? String{
                     print(stringID)
                     dataString = dataString + "\(stringID), "
                 }
                 if let stringAns = record.valueForKey("answers") as? String {
-                    print(stringAns)
-                    dataString = dataString + "\(stringAns) "
+                    let formattedString = stringAns.stringByReplacingOccurrencesOfString(",", withString: ";")
+                    print(formattedString)
+
+                    dataString = dataString + "\(formattedString), \n"
                 }
             }
         } catch {
             fatalError("Failed to fetch record: \(error)")
         }
-        let str = "QuestionID, Response, Date \n" + dataString
+        let str = "Date, QuestionID, Response \n" + dataString
         let fileName = getDocumentsDirectory().stringByAppendingPathComponent("output.csv")
         
         do {
