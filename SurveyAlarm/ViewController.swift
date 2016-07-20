@@ -35,6 +35,8 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         self.myTimeRange = nil
         self.strTime = NSDate()
         self.moc = DataController().managedObjectContext
+        setNotificationSettings()
+        setNotification(10)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +65,25 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         }
     }
     
+    func setNotificationSettings() {
+        var notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Sound]
+        var surveyAction = UIMutableUserNotificationAction()
+        surveyAction.identifier = "completeSurvey"
+        surveyAction.title = "Complete survey"
+        surveyAction.activationMode = UIUserNotificationActivationMode.Foreground
+        surveyAction.destructive = false
+        surveyAction.authenticationRequired = false
+        
+        let actionsArray = NSArray(objects: surveyAction)
+        
+        var surveyReminderCategory = UIMutableUserNotificationCategory()
+        surveyReminderCategory.identifier = "surveyReminderCategory"
+        surveyReminderCategory.setActions(actionsArray as! [UIUserNotificationAction], forContext: UIUserNotificationActionContext.Default)
+        let categoriesForSettings = NSSet(objects: surveyReminderCategory)
+        let newNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categoriesForSettings as! Set<UIUserNotificationCategory>)
+        UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
+    }
+    
     func setNotification(increment: Double){
         let notification = UILocalNotification()
         //        notification.fireDate = timeFormatter!.dateFromString(strTime?.dateByAddingTimeInterval(increment))
@@ -71,6 +92,7 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         notification.alertAction = "complete survey"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["CustomField1": "Survey"]
+        
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
 
     }
@@ -156,7 +178,6 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
                         print(formattedDate)
                         dataString = dataString + "\(formattedDate), "
                     }
-//                    dataString = dataString + "\(timeFormatter?.stringFromDate(stringDate)), "
                 }
                 if let stringID = record.valueForKey("identifier") as? String{
                     print(stringID)
