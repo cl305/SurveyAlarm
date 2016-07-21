@@ -35,8 +35,6 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         self.myTimeRange = nil
         self.strTime = NSDate()
         self.moc = DataController().managedObjectContext
-        setNotificationSettings()
-        setNotification(10)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +55,13 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
         timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
         let myDate = NSDate()
         print(timeIncreArr.count)
+        setNotification(123)
         
         for increment in timeIncreArr{
             timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
             let incrementDouble = Double(increment)
+            print(incrementDouble)
+            setNotification(Double(increment))
             print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
         }
     }
@@ -85,8 +86,10 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     }
     
     func setNotification(increment: Double){
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         let notification = UILocalNotification()
-        //        notification.fireDate = timeFormatter!.dateFromString(strTime?.dateByAddingTimeInterval(increment))
+        strTime = NSDate()
+        print(strTime?.dateByAddingTimeInterval(increment))
         notification.fireDate = strTime?.dateByAddingTimeInterval(increment)
         notification.alertBody = "Swipe here to complete a survey."
         notification.alertAction = "complete survey"

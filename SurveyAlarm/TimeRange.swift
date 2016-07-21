@@ -43,8 +43,9 @@ class TimeRange{
     func generateAlarmTimes() -> Array <Int>{
         var choiceOffset = 0
         for i in 0...daysRepeated - 1{
+            var offset = i 
             for j in 0...2{
-                var secondsOffset = (choiceHourArr[choiceOffset + j] * 3600) + (choiceMinArr[choiceOffset + j] * 60) + (86400 * i)
+                var secondsOffset = (choiceHourArr[choiceOffset + j] * 3600) + (choiceMinArr[choiceOffset + j] * 60) + (86400 * offset)
                 secondsOffset += (3600 * timeStart24) //Start hour offset
                
                 alarmDateArr.append(secondsOffset)
