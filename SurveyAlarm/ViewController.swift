@@ -52,17 +52,19 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     }
     
     @IBAction func setAlarms(sender: AnyObject) {
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
         let myDate = NSDate()
         print(timeIncreArr.count)
-        setNotification(123)
         
+//        var timer : Double = 10
         for increment in timeIncreArr{
             timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
             let incrementDouble = Double(increment)
-            print(incrementDouble)
-            setNotification(Double(increment))
-            print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
+//            print(incrementDouble)
+            setNotification(incrementDouble)
+//            timer += 30
+//            print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
         }
     }
     
@@ -86,7 +88,6 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     }
     
     func setNotification(increment: Double){
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
         let notification = UILocalNotification()
         strTime = NSDate()
         print(strTime?.dateByAddingTimeInterval(increment))
