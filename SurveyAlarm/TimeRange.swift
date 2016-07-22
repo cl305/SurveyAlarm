@@ -20,7 +20,7 @@ class TimeRange{
     var dateArr : [String]
     var alarmDateArr: [Int]
     let timeFormatter : NSDateFormatter
-    let daysRepeated = 2
+    let daysRepeated = 6
     
     
     init(timeStart : NSDate, timeEnd : NSDate){
@@ -43,11 +43,11 @@ class TimeRange{
     func generateAlarmTimes() -> Array <Int>{
         var choiceOffset = 0
         for i in 0...daysRepeated - 1{
-            var offset = i 
+            var offset = i - 1
             for j in 0...2{
                 var secondsOffset = (choiceHourArr[choiceOffset + j] * 3600) + (choiceMinArr[choiceOffset + j] * 60) + (86400 * offset)
                 secondsOffset += (3600 * timeStart24) //Start hour offset
-               
+//                print(secondsOffset)
                 alarmDateArr.append(secondsOffset)
             }
             choiceOffset += 3
@@ -57,13 +57,15 @@ class TimeRange{
     
     func randomize(timeStart : Int, timeEnd : Int){
         var hourArr : [Int] = []
-        for i in 0...14{
+        for i in 0...13{
             var timeElement = timeStart + i
             if timeElement >= 24{
                 hourArr.append(timeElement - 24)
+                print(timeElement - 24)
             }
             else{
                 hourArr.append(timeElement)
+                print(timeElement)
             }
         }
         for _ in 0...daysRepeated - 1{

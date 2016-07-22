@@ -54,17 +54,10 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     @IBAction func setAlarms(sender: AnyObject) {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         timeFormatter!.dateFormat = "dd-MM-yyyy HH:mm"
-        let myDate = NSDate()
-        print(timeIncreArr.count)
-        
-//        var timer : Double = 10
         for increment in timeIncreArr{
             timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
             let incrementDouble = Double(increment)
-//            print(incrementDouble)
             setNotification(incrementDouble)
-//            timer += 30
-//            print(timeFormatter!.stringFromDate((myDate.dateByAddingTimeInterval(incrementDouble))))
         }
     }
     
@@ -90,10 +83,11 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
     func setNotification(increment: Double){
         let notification = UILocalNotification()
         strTime = NSDate()
-        print(strTime?.dateByAddingTimeInterval(increment))
+        timeFormatter!.dateFormat = "dd-MM-yyyy hh:mm a"
+        print(timeFormatter!.stringFromDate((strTime?.dateByAddingTimeInterval(increment))!))
         notification.fireDate = strTime?.dateByAddingTimeInterval(increment)
         notification.alertBody = "Swipe here to complete a survey."
-        notification.alertAction = "complete survey"
+        notification.alertAction = "Complete survey"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["CustomField1": "Survey"]
         
