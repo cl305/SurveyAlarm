@@ -182,9 +182,10 @@ class ViewController: UIViewController, ORKTaskViewControllerDelegate{
                     dataString = dataString + "\(stringID), "
                 }
                 if let stringAns = record.valueForKey("answers") as? String {
-                    let formattedString = stringAns.stringByReplacingOccurrencesOfString(",", withString: ";")
+                    var formattedString = stringAns.stringByReplacingOccurrencesOfString(",", withString: " ")
+                    formattedString = stringAns.stringByReplacingOccurrencesOfString("}", withString: "")
+                    formattedString.removeAtIndex(formattedString.startIndex)
                     print(formattedString)
-
                     dataString = dataString + "\(formattedString), \n"
                 }
             }
